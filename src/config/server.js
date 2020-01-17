@@ -8,7 +8,8 @@ const bodyParser = require('body-parser');
 const app = express();
 
 //Importing routes
-const customerRoutes = require('../routes/customer');
+const principalRoutes = require('../routes/main');
+const customerRoutes = require('../routes/impuesto');
 
 //settings
 app.set('port', process.env.PORT || 3000);
@@ -19,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 //routes
-app.use('/', customerRoutes);
+app.use('/', principalRoutes);
 
 module.exports = app;
 

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Sistema_CRI</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="/">Sistemas_CRI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inicio</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="paises">Tabla de Paises</a>
+          <a class="dropdown-item" href="impuesto">Tabla de Impuestos</a>
+          <a class="dropdown-item" href="extractor">Extractor Info.</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Proveedores</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="proveedor">Registrar</a>
+          <a class="dropdown-item" href="excepcion">Excepciones</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Facturas</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="facturas">Registrar</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Declaración</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="dec_iva">Impuesto IVA</a>
+          <a class="dropdown-item" href="dec_islr">Impuesto Sobre la Renta</a>
+          <a class="dropdown-item" href="dec_iae">Impuesto Municipales</a>
+          <a class="dropdown-item" href="gen_cpbte">Generar Comprobantes</a>
+          <a class="dropdown-item" href="gen_file">Generar XML/PDF</a>
+          <a class="dropdown-item" href="portal">OnLine ->Portal SENIAT</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="cons_iva">Coprobante de Impuesto IVA</a>
+          <a class="dropdown-item" href="cons_islr">Coprobante de Impuesto ISLR</a>
+          <a class="dropdown-item" href="cons_iae">Comprobante Impuesto Municipales</a>
+          <a class="dropdown-item" href="cons_reg">Facturas Registradas por Periodo</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="rep_iva">Coprobante de Impuesto IVA</a>
+          <a class="dropdown-item" href="rp_islr">Coprobante de Impuesto ISLR</a>
+          <a class="dropdown-item" href="rep_iae">Comprobante Impuesto Municipales</a>
+          <a class="dropdown-item" href="rep_reg">Facturas Registradas por Periodo</a>
+        </div>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <!--
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      -->
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">LogIn</button>
+    </form>
+  </div>
+</nav>
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+
+      <!-- Cuerpo del Programa -->
+      <nav class="navbar navbar-dark bg-dark">
+        <a href="/" class="navbar-brand">Sistema CRI</a>
+      </nav>
+      <div class="container mt 5">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="card mx auto">
+              <div class="card-body">
+                <form action="/impuesto/update/<%= impuesto.id %>" method="post">
+                    <h3 class="card-title">Actualizar Impuestos</h3>
+                    <div class="form-group">
+                      <input name="codigo" type="text" class="form-control" value="<%= impuesto.codigo %>" required>
+                    </div>
+                    <div class="form-group">
+                      <input name="descripcion" type="text" class="form-control" value="<%= impuesto.descripcion %>" required>
+                    </div>
+                    <div class="form-group">
+                      <input name="porcentaje" type="text" class="form-control" value="<%= impuesto.porcentaje %>" required>
+                    </div>
+                    <div class="form-group">
+                      <input name="vigencia" type="text" class="form-control" value="<%= impuesto.vigencia.toLocaleDateString() %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Actualizar
+                    </button>
+                 </form>
+              </div>
+            </div>
+          </div> 
+  
+        </div>
+      </div>
+
+      </div>
+
+    </main><!-- /.container -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+    </html>
