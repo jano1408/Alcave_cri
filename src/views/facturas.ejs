@@ -111,47 +111,53 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-      
-      <!-- Cuerpo del programa-->
-      <nav class="navbar navbar-dark bg-dark">
-        <a href="/" class="navbar-brand">Sistema CRI</a>
-      </nav>
-      <div class="container mt 5">
+
+        <!-- Cuerpo del Programa -->
+
+        <nav class="navbar navbar-dark bg-dark">
+          <a href="/" class="navbar-brand">Sistema CRI</a>
+        </nav>
+    
         <div class="row">
-          <div class="col-md-5">
-            <div class="card mx auto">
-              <div class="card-body">
-                <form action="/paises/<%= municipios.idpais %>/estados/<%= municipios.idedo %>/municipios/update/<%= municipios.idmun %>" method="post">
-                    <h3 class="card-title">Actualizar Municipios</h3>
-
-                    <div class="form-row">
-                        <div class="form-group col-6">
-                          <label for="exampleFormControlInput1">Cód/País</label>
-                          <input name="idpais" type="text" class="form-control" value="<%= municipios.idpais %>" readonly>
-                        </div>
+          <div class="col-md-16 mt-4 text-center">
+            <table class="table table-striped table-bordered">
+              <tr>
+                <th>Factura</th>
+                
+                <th>Fecha</th>
+                <th>Proveedor</th>
+                <th>Nombre Proveedor</th>
+                
+                <th>Monto Base</th>
+                <th>IVA</th>
+                <th>% IVA</th>
+                <th>Total</th>
+                <th>Acciones</th>
+              </tr>
+              <% for (var i = 0; i < facturas.length; i ++) { %>
+                <tr>
+                  <td><%= facturas[i].numfac %></td>
+                  
+                  <td><%= facturas[i].fecfac.toLocaleDateString()  %></td>
+                  <td><%= facturas[i].riffac %></td>
+                  <td><%= facturas[i].nompro %></td>
+                  
+                  <td><%= facturas[i].basfac.toLocaleString('de-DE') %></td>   
+                  <td><%= facturas[i].ivafac.toLocaleString('de-DE') %></td>
+                  <td><%= facturas[i].porcentaje %></td>
+                  <td><%= (facturas[i].basfac + facturas[i].ivafac).toLocaleString('de-DE') %></td>
+                  <td>
                     
-                        <div class="form-group col-6">
-                          <label for="exampleFormControlInput1">Cód/Estado</label>
-                          <input name="idedo" type="text" class="form-control" value="<%= municipios.idedo %>" readonly>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                      <input name="codmun" type="text" class="form-control" value="<%= municipios.codmun %>" required>
-                    </div>
-                    <div class="form-group">
-                      <input name="desmun" type="text" class="form-control" value="<%= municipios.desmun %>" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                      Actualizar
-                    </button>
-                 </form>
-              </div>
-            </div>
-          </div> 
-  
-        </div>
-      </div>
+                    <a href="/facturas/entrar" class="btn btn-success">Agregar</a>
+                    <a href="/facturas/update/<%= facturas[i].idfac %>" class="btn btn-info">Editar</a>
+                    <a href="/facturas/delete/<%= facturas[i].idfac %>" class="btn btn-danger">Eliminar</a>
+                  
+                  </td>
+                </tr>
+              <% } %>
+            </table>
+          </div>
+    
 
       </div>
 

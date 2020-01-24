@@ -116,35 +116,107 @@
       <nav class="navbar navbar-dark bg-dark">
         <a href="/" class="navbar-brand">Sistema CRI</a>
       </nav>
-      <div class="container mt 5">
+      <div class="container mt 0">
         <div class="row">
-          <div class="col-md-5">
+          <div class="col-md-10">
+            <div class="col-md-10">
             <div class="card mx auto">
               <div class="card-body">
-                <form action="/paises/<%= municipios.idpais %>/estados/<%= municipios.idedo %>/municipios/update/<%= municipios.idmun %>" method="post">
-                    <h3 class="card-title">Actualizar Municipios</h3>
+                <form action="/facturas/update/<%= facturas.idfac %>" method="post"> 
+                    <h3 class="card-title">Actualizar Facturas</h3>
 
                     <div class="form-row">
-                        <div class="form-group col-6">
-                          <label for="exampleFormControlInput1">Cód/País</label>
-                          <input name="idpais" type="text" class="form-control" value="<%= municipios.idpais %>" readonly>
-                        </div>
-                    
-                        <div class="form-group col-6">
-                          <label for="exampleFormControlInput1">Cód/Estado</label>
-                          <input name="idedo" type="text" class="form-control" value="<%= municipios.idedo %>" readonly>
-                        </div>
+                      <div class="form-group col-md-4">
+                        <label for="exampleFormControlInput1">RIF de Proveedor</label>
+                        <input name="riffac" type="text" class="form-control" value="<%= facturas.riffac %>" required>
+                      </div>
+                      <div class="form-group col-md-8">
+                        <label for="exampleFormControlInput1">Nombre de Proveedor</label>
+                        <input name="nompro" type="text" class="form-control" value="<%= facturas.nompro %>" readonly>          
+                      </div>
+                    </div>
+                   
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="exampleFormControlInput1">Número de Factura</label>
+                        <input name="numfac" type="text" class="form-control" value="<%= facturas.numfac %>" required> 
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="exampleFormControlInput1">Número de Control</label>
+                       <input name="ctlfac" type="text" class="form-control" value="<%= facturas.ctlfac %>" required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="exampleFormControlInput1">Fecha de Factura</label>
+                        <input name="fecfac" type="text" class="form-control" value="<%= facturas.fecfac.toLocaleDateString() %>" required> 
+                      </div>
                     </div>
 
-                    <div class="form-group">
-                      <input name="codmun" type="text" class="form-control" value="<%= municipios.codmun %>" required>
+                    <div class="form-row">
+                      <div class="form-group col-md-3">
+                        <label for="exampleFormControlInput1">Base Imponible</label>
+                        <input name="basfac" type="text" class="form-control" value="<%= facturas.basfac.toLocaleString('de-DE') %>" required>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="exampleFormControlInput1">Monto Iva</label>
+                        <input name="ivafac" type="text" class="form-control" value="<%= facturas.ivafac.toLocaleString('de-DE') %>" required>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <label for="exampleFormControlInput1">Cód.</label>
+                        <input name="idivafac" type="text" class="form-control" value="<%= facturas.idivafac %>" required>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="exampleFormControlInput1">% Iva</label>
+                        <input name="porcentaje" type="text" class="form-control" value="<%= facturas.porcentaje.toLocaleString('de-DE') %>" readonly>
+                      </div>
+                      <div class="form-group col-md-4">
+                       <label for="exampleFormControlInput1">Total Factura</label>
+                       <input name="totfac" type="text" class="form-control" value="<%= (facturas.basfac + facturas.ivafac).toLocaleString('de-DE') %>" readonly>       
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <input name="desmun" type="text" class="form-control" value="<%= municipios.desmun %>" required>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-1">
+                        <label for="exampleFormControlInput1">Cód.</label>
+                        <input name="curfac" type="text" class="form-control" value="<%= facturas.curfac %>" required>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="exampleFormControlInput1">Moneda</label>
+                        <input name="desmon" type="text" class="form-control" value="<%= facturas.desmon %>" required>
+                      </div>
                     </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-1">
+                        <label for="exampleFormControlInput1">Cód.</label>
+                        <input name="paisfac" type="text" class="form-control" value="<%= facturas.paisfac %>" required>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="exampleFormControlInput1">País</label>
+                        <input name="despais" type="text" class="form-control" value="<%= facturas.despais %>" readonly>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <label for="exampleFormControlInput1">Cód.</label>
+                        <input name="edofac" type="text" class="form-control" value="<%= facturas.edofac %>" required>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="exampleFormControlInput1">Estado</label>
+                        <input name="desedo" type="text" class="form-control" value="<%= facturas.desedo %>" readonly>
+                      </div>
+                      <div class="form-group col-md-1">
+                        <label for="exampleFormControlInput1">Cód.</label>
+                        <input name="munfac" type="text" class="form-control" value="<%= facturas.munfac %>" required>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="exampleFormControlInput1">Municipio</label>
+                        <input name="desmun" type="text" class="form-control" value="<%= facturas.desmun %>" readonly>
+                      </div>
+                    </div>
+                                                                             
                     <button type="submit" class="btn btn-primary">
                       Actualizar
                     </button>
+                  
                  </form>
               </div>
             </div>

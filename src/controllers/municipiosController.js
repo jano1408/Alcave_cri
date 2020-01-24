@@ -14,6 +14,8 @@ const dbConnection = require('../config/dbConnection');
               res.json(err);
              }
               res.render('municipios' , {
+              idpais,
+              idedo,
               municipios: result    
              });     
            });

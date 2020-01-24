@@ -44,58 +44,57 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inicio</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="paises">Tabla de Paises</a>
-          <a class="dropdown-item" href="estado">Tabla de Estados</a>
-          <a class="dropdown-item" href="municipio">Tabla de Municipios</a>
-          <a class="dropdown-item" href="impuesto">Tabla de Impuestos</a>
-          <a class="dropdown-item" href="extractor">Extractor Info.</a>
+          <a class="dropdown-item" href="/paises">Tabla de Paises</a>
+          <a class="dropdown-item" href="/monedas">Tabla de Monedas</a>
+          <a class="dropdown-item" href="/impuesto">Tabla de Impuestos</a>
+          <a class="dropdown-item" href="/extractor">Extractor Info.</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Proveedores</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="proveedor">Registrar</a>
-          <a class="dropdown-item" href="excepcion">Excepciones</a>
+          <a class="dropdown-item" href="/proveedor">Registrar</a>
+          <a class="dropdown-item" href="/excepcion">Excepciones</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Facturas</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="facturas">Registrar</a>
+          <a class="dropdown-item" href="/facturas">Registrar</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Declaración</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="dec_iva">Impuesto IVA</a>
-          <a class="dropdown-item" href="dec_islr">Impuesto Sobre la Renta</a>
-          <a class="dropdown-item" href="dec_iae">Impuesto Municipales</a>
-          <a class="dropdown-item" href="gen_cpbte">Generar Comprobantes</a>
-          <a class="dropdown-item" href="gen_file">Generar XML/PDF</a>
-          <a class="dropdown-item" href="portal">OnLine ->Portal SENIAT</a>
+          <a class="dropdown-item" href="/dec_iva">Impuesto IVA</a>
+          <a class="dropdown-item" href="/dec_islr">Impuesto Sobre la Renta</a>
+          <a class="dropdown-item" href="/dec_iae">Impuesto Municipales</a>
+          <a class="dropdown-item" href="/gen_cpbte">Generar Comprobantes</a>
+          <a class="dropdown-item" href="/gen_file">Generar XML/PDF</a>
+          <a class="dropdown-item" href="/portal">OnLine ->Portal SENIAT</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="cons_iva">Coprobante de Impuesto IVA</a>
-          <a class="dropdown-item" href="cons_islr">Coprobante de Impuesto ISLR</a>
-          <a class="dropdown-item" href="cons_iae">Comprobante Impuesto Municipales</a>
-          <a class="dropdown-item" href="cons_reg">Facturas Registradas por Periodo</a>
+          <a class="dropdown-item" href="/cons_iva">Comprobante de Impuesto IVA</a>
+          <a class="dropdown-item" href="/cons_islr">Comprobante de Impuesto ISLR</a>
+          <a class="dropdown-item" href="/cons_iae">Comprobante Impuesto Municipales</a>
+          <a class="dropdown-item" href="/cons_reg">Facturas Registradas por Periodo</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="rep_iva">Coprobante de Impuesto IVA</a>
-          <a class="dropdown-item" href="rp_islr">Coprobante de Impuesto ISLR</a>
-          <a class="dropdown-item" href="rep_iae">Comprobante Impuesto Municipales</a>
-          <a class="dropdown-item" href="rep_reg">Facturas Registradas por Periodo</a>
+          <a class="dropdown-item" href="/rep_iva">Comprobante de Impuesto IVA</a>
+          <a class="dropdown-item" href="/rp_islr">Comprobante de Impuesto ISLR</a>
+          <a class="dropdown-item" href="/rep_iae">Comprobante Impuesto Municipales</a>
+          <a class="dropdown-item" href="/rep_reg">Facturas Registradas por Periodo</a>
         </div>
       </li>
 
@@ -112,3 +111,48 @@
     <main role="main" class="container">
 
       <div class="starter-template">
+
+        <!-- Cuerpo del Programa -->
+
+        <nav class="navbar navbar-dark bg-dark">
+          <a href="/" class="navbar-brand">Sistema CRI</a>
+        </nav>
+    
+        <div class="row">
+          <div class="col-md-12 mt-4 text-center">
+            <table class="table table-striped table-bordered">
+              <tr>
+                <th>RIF</th>
+                <th>Nombre Proveedor</th>
+                <th>Dirección</th>
+                <th>Correo</th>
+                <th>Pais</th>
+                <th>Estado</th>
+                <th>Municipio</th>
+                <th>Acciones</th>
+              </tr>
+              <% for (var i = 0; i < proveedor.length; i ++) { %>
+                <tr>
+                  <td><%= proveedor[i].rifpro %></td>
+                  <td><%= proveedor[i].nompro %></td>
+                  <td><%= proveedor[i].dirpro %></td>
+                  <td><%= proveedor[i].mailpro %></td>
+                  <td><%= proveedor[i].codpais %></td>
+                  <td><%= proveedor[i].codedo %></td>
+                  <td><%= proveedor[i].codmun %></td>   
+                  <td>
+                    <a href="#" class="btn btn-info">Detalle</a>
+                  </td>
+                </tr>
+              <% } %>
+            </table>
+          </div>
+    
+
+      </div>
+
+    </main><!-- /.container -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>
+    </html>
